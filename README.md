@@ -1,37 +1,37 @@
 <div align="center">
-    <img src="icon_rounded.png" alt="NeoFreeBird-BHTwitter" width="130" height="130">
+    <img src="icon_rounded.png" alt="Twitter Bird Icon" width="130" height="130">
 
 
  > [!WARNING]
  > <b>Please do not make issues on logging in.</b> Twitter has currently sealed off all login paths without attestation, so you will not be able to log in. This is a Twitter issue, not a NeoFreeBird issue. 
 
 
-  # NeoFreeBird-BHTwitter
+  # NeoFreeBird
   <i>The ultimate way to tweak your Twitter/X experience.</i>
 
   ## Twitter Branding
 
   <div>
-    <a href="https://intradeus.github.io/http-protocol-redirector?r=altstore://source?url=https://raw.githubusercontent.com/orionblur/NeoFreeBird/refs/heads/v6/AltSource.json"><img src="images/badges/add_to_altstore.png" alt="Add to AltStore" height="40"></a>
+    <a href="https://intradeus.github.io/http-protocol-redirector?r=altstore://source?url=https://raw.githubusercontent.com/NeoFreeBird/app/refs/heads/v6/AltSource.json"><img src="images/badges/add_to_altstore.png" alt="Add to AltStore" height="40"></a>
     &nbsp;
-    <a href="https://intradeus.github.io/http-protocol-redirector?r=sidestore://source?url=https://raw.githubusercontent.com/orionblur/NeoFreeBird/refs/heads/v6/AltSource.json"><img src="images/badges/add_to_sidestore.png" alt="Add to SideStore" height="40"></a>
+    <a href="https://intradeus.github.io/http-protocol-redirector?r=sidestore://source?url=https://raw.githubusercontent.com/NeoFreeBird/app/refs/heads/v6/AltSource.json"><img src="images/badges/add_to_sidestore.png" alt="Add to SideStore" height="40"></a>
     &nbsp;
-    <a href="https://intradeus.github.io/http-protocol-redirector?r=feather://source/https://raw.githubusercontent.com/orionblur/NeoFreeBird/refs/heads/v6/AltSource.json"><img src="images/badges/add_to_feather.png" alt="Add to Feather" height="40"></a>
+    <a href="https://intradeus.github.io/http-protocol-redirector?r=feather://source/https://raw.githubusercontent.com/NeoFreeBird/app/refs/heads/v6/AltSource.json"><img src="images/badges/add_to_feather.png" alt="Add to Feather" height="40"></a>
     &nbsp;
-    <a href="https://github.com/orionblur/NeoFreeBird/releases"><img src="images/badges/download_from_github.png" alt="Download from GitHub" height="40"></a>
+    <a href="https://github.com/NeoFreeBird/app/releases"><img src="images/badges/download_from_github.png" alt="Download from GitHub" height="40"></a>
     &nbsp;
   </div>
 
   ## X Branding
 
   <div>
-    <a href="https://intradeus.github.io/http-protocol-redirector?r=altstore://source?url=https://raw.githubusercontent.com/orionblur/NeoFreeBird/refs/heads/v6/AltSource-X.json"><img src="images/badges/add_to_altstore.png" alt="Add to AltStore" height="40"></a>
+    <a href="https://intradeus.github.io/http-protocol-redirector?r=altstore://source?url=https://raw.githubusercontent.com/NeoFreeBird/app/refs/heads/v6/AltSource-X.json"><img src="images/badges/add_to_altstore.png" alt="Add to AltStore" height="40"></a>
     &nbsp;
-    <a href="https://intradeus.github.io/http-protocol-redirector?r=sidestore://source?url=https://raw.githubusercontent.com/orionblur/NeoFreeBird/refs/heads/v6/AltSource-X.json"><img src="images/badges/add_to_sidestore.png" alt="Add to SideStore" height="40"></a>
+    <a href="https://intradeus.github.io/http-protocol-redirector?r=sidestore://source?url=https://raw.githubusercontent.com/NeoFreeBird/app/refs/heads/v6/AltSource-X.json"><img src="images/badges/add_to_sidestore.png" alt="Add to SideStore" height="40"></a>
     &nbsp;
-    <a href="https://intradeus.github.io/http-protocol-redirector?r=feather://source/https://raw.githubusercontent.com/orionblur/NeoFreeBird/refs/heads/v6/AltSource-X.json"><img src="images/badges/add_to_feather.png" alt="Add to Feather" height="40"></a>
+    <a href="https://intradeus.github.io/http-protocol-redirector?r=feather://source/https://raw.githubusercontent.com/NeoFreeBird/app/refs/heads/v6/AltSource-X.json"><img src="images/badges/add_to_feather.png" alt="Add to Feather" height="40"></a>
     &nbsp;
-    <a href="https://github.com/orionblur/NeoFreeBird/releases"><img src="images/badges/download_from_github.png" alt="Download from GitHub" height="40"></a>
+    <a href="https://github.com/NeoFreeBird/app/releases"><img src="images/badges/download_from_github.png" alt="Download from GitHub" height="40"></a>
     &nbsp;
   </div>
 </div>
@@ -58,13 +58,13 @@
 |<img width="1604" alt="Screenshot 4" src="images/settings/settings13.png">|<img width="1604" alt="Screenshot 5" src="images/settings/settings14.png">|<img width="1604" alt="Screenshot 6" src="images/settings/settings15.png">|
 
 # Downloading
-Go to the [Releases](https://github.com/orionblur/NeoFreeBird/releases) page to download the latest version of NeoFreeBird-BHTwitter. You can also build it yourself by following the instructions below.
+Go to the [Releases](https://github.com/NeoFreeBird/app/releases) page to download the latest version of NeoFreeBird. You can also build it yourself by following the instructions below.
 
 # Supporting the Project
 
 I welcome all help on NeoFreeBird! Translations, bug fixes, and new features are all welcome. If you do see any issues with the app, feel free to open an issue and follow the templates provided. I also have a Ko-Fi linked in the repo if you wish to support me directly, but by no means is it required! NeoFreeBird will always be open-source and free to use.
 
-# Compiling NeoFreeBird-BHTwitter
+# Compiling NeoFreeBird
 
 ## Using your computer
 
@@ -73,10 +73,10 @@ I welcome all help on NeoFreeBird! Translations, bug fixes, and new features are
 > Note for Linux users: the current toolchain that ships with Theos is too outdated to build successfully ("Undefined symbols for architecture arm64"). Download the latest toolchain for your distro from [here](https://github.com/L1ghtmann/swift-toolchain-linux/releases/latest) and replace `$THEOS/toolchain/linux` with its contents.
 
 2. Install [cyan](https://github.com/asdfzxcvbn/pyzule-rw) if you want sideload or TrollStore builds.
-3. Clone the NeoFreeBird-BHTwitter repository:
+3. Clone the NeoFreeBird repository:
 
 ```bash
-git clone --recursive https://github.com/orionblur/NeoFreeBird
+git clone --recursive https://github.com/NeoFreeBird/app
 cd NeoFreeBird
 ```
 
