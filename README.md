@@ -1,9 +1,10 @@
 <div align="center">
     <img src="icon_rounded.png" alt="Twitter Bird Icon" width="130" height="130">
+</div>
+<br>
 
-
- > [!WARNING]
- > <b>Please do not make issues on logging in.</b> Twitter has currently sealed off all login paths without attestation, so you will not be able to log in. This is a Twitter issue, not a NeoFreeBird issue. 
+> [!WARNING]
+> <b>Please do not make issues on logging in.</b> Twitter has currently sealed off all login paths without attestation, so you will not be able to log in. This is a Twitter issue, not a NeoFreeBird issue. 
 
 
   # NeoFreeBird
