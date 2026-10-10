@@ -889,7 +889,7 @@ id accountForAuthenticatedWebView(void) {
 }
 
 // The current web session's auth_token + ct0, for read-only web GraphQL GETs (e.g.
-// SourceLabels.x). Harvests the shared cookie jar first; nil until a session exists.
+// LocationLabels.x). Harvests the shared cookie jar first; nil until a session exists.
 NSDictionary* currentWebCredentials(void) {
     harvestSharedCookies();
     if (WebAuthToken.length == 0 || WebCT0.length == 0) {

@@ -165,6 +165,14 @@ static BOOL FastBlockEnabled(void) {
     return [BHTSettings boolForKey:@"fast_block"];
 }
 
+%hook TFNTwitterAccount
+
+- (BOOL)isXDSAlertBlockUserEnabled {
+    return FastBlockEnabled() ? NO : %orig;
+}
+
+%end
+
 // The mute alert is requested by the caller rather than by the mute itself.
 %hook T1TabbedAppNavigation
 

@@ -76,6 +76,38 @@ static BOOL ShouldKeepBrowserURLInApp(NSURL* url) {
 
 %end
 
+%hook NSString
+
+- (BOOL)tfs_plainTextShouldBeRenderedFromRight {
+    return [BHTSettings boolForKey:@"disable_rtl"] ? NO : %orig;
+}
+
+- (BOOL)tfs_statusTextShouldBeRenderedFromRight {
+    return [BHTSettings boolForKey:@"disable_rtl"] ? NO : %orig;
+}
+
+- (BOOL)tfs_labelTextShouldBeRenderedFromRight {
+    return [BHTSettings boolForKey:@"disable_rtl"] ? NO : %orig;
+}
+
+%end
+
+%hook TFNTwitterStatus
+
+- (BOOL)shouldBeRenderedFromRight {
+    return [BHTSettings boolForKey:@"disable_rtl"] ? NO : %orig;
+}
+
+%end
+
+%hook TFNTwitterDisplayTextModel
+
+- (BOOL)_tfn_shouldBeRenderedFromRight {
+    return [BHTSettings boolForKey:@"disable_rtl"] ? NO : %orig;
+}
+
+%end
+
 // MARK: - Disable RTL
 
 // CoreText picks direction from the first strong directional character; forcing

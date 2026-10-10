@@ -82,11 +82,6 @@ static UIViewController* _Nonnull topMostController() {
 - (void)setImage:(UIImage*)image;
 @end
 
-// Implemented in Hooks/SourceLabels.x
-@interface TweetSourceHelper : NSObject
-+ (void)fetchSourceForTweetID:(NSString*)tweetID;
-@end
-
 // Defined in Hooks/BHTHookHelpers.m
 extern UIColor* CurrentAccentColor(void);
 
