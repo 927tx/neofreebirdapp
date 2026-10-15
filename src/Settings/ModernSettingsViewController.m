@@ -464,7 +464,7 @@
 }
 - (void)footerLabelLongPressed:(UILongPressGestureRecognizer*)sender {
     if (sender.state == UIGestureRecognizerStateBegan) {
-        NSURL* url = [NSURL URLWithString:@"https://www.youtube.com/watch?v=MyWezywxxqU"];
+        NSURL* url = [NSURL URLWithString:@"https://www.youtube.com/watch?v=EwOhODw6WOg"];
         if ([[UIApplication sharedApplication] canOpenURL:url]) {
             [[UIApplication sharedApplication] openURL:url options:@{} completionHandler:nil];
         }
@@ -503,6 +503,8 @@
         [cell configureWithTitle:sectionData[@"title"]
                         subtitle:sectionData[@"subtitle"]
                         iconName:sectionData[@"icon"]];
+        cell.lastInSection =
+            indexPath.row == [tableView numberOfRowsInSection:indexPath.section] - 1;
         return cell;
     } else if (indexPath.section == 1) {
         return [self developerCellForTableView:tableView

@@ -260,6 +260,10 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         return @NO;
     }
 
+    if ([key isEqualToString:@"ios_settings_redesign_enabled"]) {
+        return @YES;
+    }
+
     // 0 hides the Communities tab, 1 is contextual-only; anything else shows it.
     if ([key isEqualToString:@"c9s_tab_visibility"]) {
         return @2;

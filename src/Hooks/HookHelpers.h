@@ -52,6 +52,9 @@ void BHTApplyDimToVideoControls(UIView* controlsView);
 // Live pinned-tabs refresh when the hide setting is toggled (Timeline.x)
 void applyHideCustomTimelinesSetting(void);
 
+// Long press on the home navigation bar opens NeoFreeBird settings (Settings.x)
+void attachNeoFreeBirdSettingsGesture(UIViewController* home);
+
 // Whether the account genuinely has a panel's tab, ignoring the forced tab
 // gates (FeatureSwitches.x)
 BOOL panelIsGenuinelyAvailable(long long panelID);
