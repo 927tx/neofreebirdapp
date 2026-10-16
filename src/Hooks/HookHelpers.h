@@ -59,7 +59,6 @@ void attachNeoFreeBirdSettingsGesture(UIViewController* home);
 // gates (FeatureSwitches.x)
 BOOL panelIsGenuinelyAvailable(long long panelID);
 
-
 // Web session cookie harvesting (WebCreateTweet.x)
 void prewarmWebCookiesIfNeeded(void);
 void maybeHandleHarvestWebView(__unsafe_unretained id webViewController);
