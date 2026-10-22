@@ -162,6 +162,15 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         return @(![BHTSettings boolForKey:@"hide_grok_analyze"]);
     }
 
+    if ([key isEqualToString:@"grok_ios_grok_bot_upsells_enabled"] ||
+        [key isEqualToString:@"grok_ios_grok_bot_sidebar_enabled"] ||
+        [key isEqualToString:@"grok_ios_grok_bot_home_header_enabled"] ||
+        [key isEqualToString:@"grok_ios_grok_bot_home_hero_enabled"] ||
+        [key isEqualToString:@"grok_ios_grok_bot_preset_enabled"] ||
+        [key isEqualToString:@"grok_ios_grok_bot_tab_icon_enabled"]) {
+        return @NO;
+    }
+
     // Session token appended to shared/copied links (&t=)
     if ([key isEqualToString:@"rehire_share_update_url_enabled"]) {
         return @NO;
@@ -182,6 +191,16 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         return @NO;
     }
 
+    if ([key isEqualToString:@"grok_ask_grok_button_under_post_focal_enabled"]
+    || [key isEqualToString:@"grok_ask_grok_button_under_post_preview_enabled"]
+    || [key isEqualToString:@"xchat_ask_grok_enabled"]
+    || [key isEqualToString:@"grok_explain_text_selection_ask_grok_enabled"]) {
+        return @NO;
+    }
+
+    if ([key isEqualToString:@"post_about_hide_grok_pills_enabled"]) {
+        return @([BHTSettings boolForKey:@"hide_grok_analyze"]);
+    }
     // Profile tabs
     if ([key isEqualToString:@"articles_timeline_profile_tab_enabled"]) {
         return @(![BHTSettings boolForKey:@"disable_articles"]);
@@ -219,6 +238,14 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         [key isEqualToString:@"ios_ui_quote_tweet_multi_media_carousel_enabled"]) {
         if ([BHTSettings boolForKey:@"disable_media_carousel"]) {
             return @NO;
+        }
+    }
+
+    if ([key isEqualToString:@"ios_liquid_glass_redesign_enabled"] ||
+        [key isEqualToString:@"ios_liquid_glass_redesign_quick_composer_enabled"] ||
+        [key isEqualToString:@"xchat_liquid_glass_convo_header_enabled"]) {
+        if ([BHTSettings boolForKey:@"liquid_glass"]) {
+            return @YES;
         }
     }
 
