@@ -91,6 +91,7 @@ MODERN_SETTINGS_SEARCH_SUBTITLE" = "「話題を検索」タブに表示され�
 
 "BLOCK_LINK_TRACKING_TITLE" = "リンク追跡のブロック";	
 "BLOCK_LINK_TRACKING_DETAIL" = "t.coを経由せず、バックグラウンドでのt.coのリクエストや広告クリックIDなしで、リンクを直接開きます。Twitterの危険なリンクの警告は表示されなくなります。";	
+
 "STRIP_TRACKING_PARAMS_TITLE" = "追跡パラメータの削除";	
 "STRIP_TRACKING_PARAMS_DETAIL" = "開いたリンクからutm_などの追跡タグを取り除きます。";
 
