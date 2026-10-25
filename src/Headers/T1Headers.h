@@ -391,3 +391,6 @@
 @interface T1BlockMuteActionPerformer : NSObject
 - (void)showBlockAlertForContext:(id)context;
 @end
+
+@interface _TtC14T1TwitterSwift28FleetLineAccessoryController: NSObject
+@end
