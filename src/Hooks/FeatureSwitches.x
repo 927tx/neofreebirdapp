@@ -228,9 +228,11 @@ static NSNumber* FeatureSwitchOverrideValueForKey(NSString* key) {
         return @(![BHTSettings boolForKey:@"reply_sorting"]);
     }
 
-    if ([key
-            isEqualToString:@"ios_tweet_detail_overflow_in_navigation_enabled"]) {
+    if ([key isEqualToString:@"ios_tweet_detail_overflow_in_navigation_enabled"]) {
         return @NO;
+    }
+    if ([key isEqualToString:@"ios_ipad_phone_navigation_enabled"]) {
+        return (is_iPad() && ![BHTSettings boolForKey:@"liquid_glass"]) ? @NO : @YES;
     }
 
     if ([key isEqualToString:
