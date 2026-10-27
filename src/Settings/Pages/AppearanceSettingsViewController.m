@@ -112,6 +112,9 @@
 }
 
 - (void)refreshTabViewsWithThemingInView:(UIView*)view {
+    if ([view respondsToSelector:@selector(nfb_refreshGlassTabLabels)]) {
+        [view performSelector:@selector(nfb_refreshGlassTabLabels)];
+    }
     if ([view respondsToSelector:@selector(nfb_applyGlassTabAccent)]) {
         [view performSelector:@selector(nfb_applyGlassTabAccent)];
     }
@@ -155,6 +158,9 @@
 }
 
 - (void)refreshTabViewsInView:(UIView*)view {
+    if ([view respondsToSelector:@selector(nfb_refreshGlassTabLabels)]) {
+        [view performSelector:@selector(nfb_refreshGlassTabLabels)];
+    }
     if ([view isKindOfClass:NSClassFromString(@"T1TabView")]) {
         if ([view respondsToSelector:@selector(_t1_updateTitleLabel)]) {
             [view performSelector:@selector(_t1_updateTitleLabel)];
