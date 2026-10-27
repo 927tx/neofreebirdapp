@@ -9,40 +9,6 @@
 #import "HookHelpers.h"
 #import <objc/runtime.h>
 
-static bool NFBLiquidGlassEnabled(void) {
-    return [BHTSettings boolForKey:@"liquid_glass"];
-}
-
-%hook T1LiquidGlassGateInstaller
-
-+ (void)installGateForAccount:(id)account {
-    %orig(account);
-    ((void (*)(id, SEL, BOOL))objc_msgSend)(
-        self, @selector(installGateWithRedesignEnabled:), NFBLiquidGlassEnabled());
-}
-
-+ (void)installGateWithRedesignEnabled:(BOOL)enabled {
-    %orig(NFBLiquidGlassEnabled());
-}
-
-%end
-
-%hook _TtC14T1TwitterSwift27LiquidGlassRedesignFeatures
-
-- (instancetype)initWithFeatureSwitches:(id)switches
-                isSecondFactorSatisfied:(BOOL)satisfied {
-    return %orig(switches, YES);
-}
-
-- (BOOL)isRedesignEnabled {
-    return NFBLiquidGlassEnabled();
-}
-
-+ (BOOL)isQuickComposerEnabledWithFeatureSwitches:(id)switches {
-    return NFBLiquidGlassEnabled();
-}
-
-%end
 
 // MARK: - Custom accent color
 
