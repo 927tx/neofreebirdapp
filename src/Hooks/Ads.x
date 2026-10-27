@@ -49,9 +49,10 @@ static BOOL ShouldHideItem(id item, NSString* location) {
     NSString* className = NSStringFromClass([item classForCoder]);
 
     if ([BHTSettings boolForKey:@"hide_promoted"]) {
-        if ([className
-                isEqualToString:@"TwitterURT.URTTimelineStatusItemViewModel"] &&
-            StatusItemIsPromoted(item)) {
+        // Treat the model's promotion flag as authoritative. The concrete
+        // status-item class has changed across app versions, so don't gate
+        // this check on a runtime class name.
+        if (StatusItemIsPromoted(item)) {
             return YES;
         }
 
