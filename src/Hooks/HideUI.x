@@ -293,3 +293,20 @@
     }
 }
 %end
+
+%hook XDSButton
+
+- (void)didMoveToWindow {
+    %orig;
+    if ([self respondsToSelector:@selector(allTargets)]) {
+        NSSet* allTargets = [self performSelector:@selector(allTargets)];
+        for (id target in allTargets) {
+            if ([target isKindOfClass:%c(PaymentsButtonViewModel)]) {
+                self.hidden = YES;
+                self.userInteractionEnabled = NO;
+            }
+        }
+    }
+}
+
+%end
