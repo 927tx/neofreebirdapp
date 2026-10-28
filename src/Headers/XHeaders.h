@@ -17,3 +17,6 @@
 
 @interface XTabbedAppNavigationSplitViewControllerFactory : NSObject
 @end
+
+@interface XDSButton : UIControl
+@end

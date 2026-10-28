@@ -410,3 +410,6 @@
 
 @interface T1TabNavigationController : TFNNavigationController
 @end
+
+@interface PaymentsButtonViewModel : NSObject 
+@end
