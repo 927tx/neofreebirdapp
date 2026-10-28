@@ -71,3 +71,8 @@ id accountForAuthenticatedWebView(void);
 // requests such as restoring tweet source labels (WebCreateTweet.x)
 NSDictionary* currentWebCredentials(void);
 
+BOOL nfb_boolIvar(id object, const char* name, BOOL fallback);
+
+void nfb_setBoolIvar(id object, const char* name, BOOL value);
+
+id nfb_objectIvar(id object, const char* name);
