@@ -504,7 +504,6 @@ void maybeHandleHarvestWebView(__unsafe_unretained id webViewController) {
 
 void prewarmWebCookiesIfNeeded(void) {
     if (!nativeCreateTweetInterceptEnabled() &&
-        ![BHTSettings boolForKey:@"restore_tweet_labels"] &&
         ![BHTSettings boolForKey:@"show_account_location"]) {
         return;
     }
