@@ -234,4 +234,3 @@ static BOOL nfb_shouldDropScreenshotProtection(UIView* protectionView) {
 }
 
 %end
-
