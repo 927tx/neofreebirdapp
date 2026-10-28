@@ -20,3 +20,6 @@
 
 @interface XDSButton : UIControl
 @end
+
+@interface  _TtC13QuickComposer21QuickComposerSlotView : UIView
+@end

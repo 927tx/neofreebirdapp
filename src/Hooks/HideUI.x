@@ -310,3 +310,17 @@
 }
 
 %end
+
+%hook _TtC13QuickComposer21QuickComposerSlotView
+-(void)didMoveToWindow {
+    %orig;
+    if ([BHTSettings boolForKey:@"hide_quick_compose"]) {
+        self.hidden = YES;
+        self.userInteractionEnabled = NO;
+        for (UIView* subview in self.subviews) {
+            subview.hidden = YES;
+        }
+    }
+}
+
+%end
