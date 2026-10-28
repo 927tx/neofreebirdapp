@@ -161,7 +161,6 @@ bool NFBLiquidGlassEnabled(void) {
     return [BHTSettings boolForKey:@"liquid_glass"];
 }
 
-
 BOOL nfb_boolIvar(id object, const char* name, BOOL fallback) {
     Ivar ivar = class_getInstanceVariable(object_getClass(object), name);
     if (!ivar) {
