@@ -96,6 +96,8 @@
 @property (copy, nonatomic) NSString* scribePage;
 @property (readonly, nonatomic) NSString* title;
 @property (readonly, nonatomic) NSString* imageName;
+@property (readonly, nonatomic) UIImageView* imageView;
+@property (readonly, nonatomic) UIView* transformContainer;
 @property (retain, nonatomic) UIColor* iconColor;
 @property (readonly, nonatomic, getter=isSelected) BOOL selected;
 - (void)_t1_updateImageViewAnimated:(BOOL)animated;
