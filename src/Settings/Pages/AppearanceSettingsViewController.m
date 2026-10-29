@@ -150,9 +150,8 @@
         [view performSelector:@selector(nfb_refreshGlassTabLabels)];
     }
     if ([view isKindOfClass:NSClassFromString(@"T1TabView")]) {
-        if ([view respondsToSelector:@selector(_t1_layoutForTabBar)]) {
-            [view performSelector:@selector(_t1_layoutForTabBar)];
-        }
+        [view setNeedsLayout];
+        [view layoutIfNeeded];
         if ([view respondsToSelector:@selector(_t1_layoutBadgeViewMaximized)]) {
             [view performSelector:@selector(_t1_layoutBadgeViewMaximized)];
         }

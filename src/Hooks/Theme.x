@@ -821,12 +821,68 @@ static void BHTApplyGlassTabAccent(UIView* item) {
 %end
 
 static BOOL updatingTabIconColor = NO;
+static char BHTLegacyTabLabelKey;
+static char BHTLegacyTabGlyphShiftKey;
 
 static UIColor* tabItemColor(BOOL selected) {
     return selected ? CurrentAccentColor() : [UIColor secondaryLabelColor];
 }
 
+static void BHTLayoutLegacyTabLabel(T1TabView* tabView) {
+    UILabel* label = objc_getAssociatedObject(tabView, &BHTLegacyTabLabelKey);
+    BOOL enabled = [BHTSettings boolForKey:@"restore_tab_labels"] && tabView.title.length;
+    if (!enabled) {
+        [label removeFromSuperview];
+        objc_setAssociatedObject(tabView, &BHTLegacyTabLabelKey, nil,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+        return;
+    }
+
+    if (!label) {
+        label = [[UILabel alloc] initWithFrame:CGRectZero];
+        label.font = [UIFont systemFontOfSize:9.0 weight:UIFontWeightMedium];
+        label.textAlignment = NSTextAlignmentCenter;
+        label.adjustsFontSizeToFitWidth = YES;
+        label.minimumScaleFactor = 0.7;
+        label.lineBreakMode = NSLineBreakByTruncatingTail;
+        label.isAccessibilityElement = NO;
+        label.userInteractionEnabled = NO;
+        objc_setAssociatedObject(tabView, &BHTLegacyTabLabelKey, label,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    label.text = tabView.title;
+    label.textColor = tabItemColor(tabView.selected);
+    label.frame = CGRectMake(2.0, CGRectGetHeight(tabView.bounds) - 13.0,
+                             MAX(0.0, CGRectGetWidth(tabView.bounds) - 4.0), 11.0);
+    if (label.superview != tabView) [tabView addSubview:label];
+    [tabView bringSubviewToFront:label];
+}
+
 %hook T1TabView
+
+- (void)setSelected:(BOOL)selected {
+    %orig(selected);
+    UILabel* label = objc_getAssociatedObject(self, &BHTLegacyTabLabelKey);
+    label.textColor = tabItemColor(selected);
+}
+
+- (void)layoutSubviews {
+    // Undo previous offset before the app lays out the icon again
+    UIView* glyph = self.transformContainer ?: self.imageView;
+    if ([objc_getAssociatedObject(glyph, &BHTLegacyTabGlyphShiftKey) boolValue]) {
+        glyph.center = CGPointMake(glyph.center.x, glyph.center.y + 5.0);
+        objc_setAssociatedObject(glyph, &BHTLegacyTabGlyphShiftKey, nil,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+    %orig;
+    BHTLayoutLegacyTabLabel(self);
+    if ([BHTSettings boolForKey:@"restore_tab_labels"] && self.title.length &&
+        CGRectGetHeight(self.bounds) >= 34.0 && glyph) {
+        glyph.center = CGPointMake(glyph.center.x, glyph.center.y - 5.0);
+        objc_setAssociatedObject(glyph, &BHTLegacyTabGlyphShiftKey, @YES,
+                                 OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+    }
+}
 
 - (void)_t1_updateImageViewAnimated:(BOOL)animated {
     if (updatingTabIconColor) return;
@@ -838,6 +894,8 @@ static UIColor* tabItemColor(BOOL selected) {
     }
     updatingTabIconColor = NO;
     %orig(animated);
+    UILabel* label = objc_getAssociatedObject(self, &BHTLegacyTabLabelKey);
+    label.textColor = tabItemColor(self.selected);
 }
 
 - (void)applyTintColor:(UIColor*)color {
@@ -848,19 +906,11 @@ static UIColor* tabItemColor(BOOL selected) {
     }
 }
 
-- (BOOL)showsTitleInDisplayMode:(long long)displayMode {
-    if ([BHTSettings boolForKey:@"restore_tab_labels"]) {
-        return YES;
-    }
-    return %orig;
-}
-
 - (void)didMoveToWindow {
     %orig;
 
-    if (self.window && [BHTSettings boolForKey:@"restore_tab_labels"] &&
-        [self respondsToSelector:@selector(_t1_layoutForTabBar)]) {
-        [self performSelector:@selector(_t1_layoutForTabBar)];
+    if (self.window) {
+        [self setNeedsLayout];
     }
 }
 
